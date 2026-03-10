@@ -1,7 +1,7 @@
 # AlexNet — From Scratch (PyTorch)
 
-**TP n°2 · Advanced Deep Learning · ENEAM/ISE**  
-Étudiant : BABA C.F. Brilland | Enseignant : R.O.Y. TOHA
+**TP n°2 · Advanced Deep Learning · UAC/ENEAM/ISE**  
+Étudiant : BABA C.F. Brilland | Enseignant :Rodéo Oswald Y. TOHA (Engineer in CV & GenAI)
 
 ---
 
