@@ -1,0 +1,14 @@
+{
+  "bn": {
+    "best_val": 0.8054,
+    "test_acc": 0.8133
+  },
+  "lrn": {
+    "best_val": 0.7954,
+    "test_acc": 0.8019
+  },
+  "none": {
+    "best_val": 0.8004,
+    "test_acc": 0.8069
+  }
+}
