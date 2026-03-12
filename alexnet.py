@@ -50,7 +50,7 @@ class ConvBlock(nn.Module):
 
 
 # Le AlexNet complet : 5 ConvBlocks + classificateur FC3
-#    Adapté sur CIFAR-10 64x64 : MaxPool 2x2, FC réduit (2048→1024), AdaptivePool(4,4)
+#  Adapté sur CIFAR-10 64x64 : MaxPool 2x2, FC réduit (2048→1024), AdaptivePool(4,4)
 
 
 class AlexNet(nn.Module):
