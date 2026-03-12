@@ -60,7 +60,8 @@ def run_epoch(model, loader, crit, opt=None, sched=None):
     return loss_sum / n, correct / n
 
 
-# Entraînement d'une variante puis  sauvegarde du meilleur checkpoint
+
+# Entraînement d'une variante puis sauvegarde du meilleur checkpoint
 
 def run(norm_tag):
     model = AlexNet(CFG["nc"], norm=norm_tag).to(DEVICE)
