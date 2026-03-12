@@ -92,7 +92,6 @@ def run(norm_tag):
 
 # On entraîne les 3 variantes dans l'ordre. À la fin, on sait quelle variante performe mieux et on affiche un résumé des résultats.
 
-
 if __name__ == "__main__":
     results = {}
     for tag in ["bn", "lrn", "none"]:
