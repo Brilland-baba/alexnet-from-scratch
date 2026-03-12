@@ -3,13 +3,16 @@ import matplotlib.pyplot as plt
 import matplotlib
 matplotlib.use("Agg")
 
+# On va charger les résultats sauvés dans results.json.
+
+
 with open("results.json") as f:
     R = json.load(f)
 
 tags = list(R.keys())
 C = {"bn": "#2563eb", "lrn": "#DD8452", "none": "#16a34a"}
 
-# Courbes réelles issues des logs d'entraînement
+# Les tracés de courbes réelles issues des logs d'entraînement
 CURVES = {
     "bn": {
         "tr":  [0.220,0.342,0.419,0.467,0.509,0.539,0.563,0.587,0.605,0.624,0.641,0.652,0.667,0.680,0.694,0.705,0.714,0.722,0.731,0.738,0.745,0.752,0.761,0.766,0.775,0.778,0.784,0.789,0.796,0.798,0.806,0.808,0.816,0.818,0.822,0.831,0.834,0.839,0.844,0.846,0.852,0.855,0.861,0.865,0.869,0.872,0.874,0.876,0.877,0.880],
@@ -24,6 +27,8 @@ CURVES = {
         "val": [0.310,0.406,0.445,0.491,0.500,0.542,0.572,0.579,0.570,0.605,0.633,0.639,0.648,0.656,0.671,0.674,0.685,0.685,0.684,0.714,0.712,0.718,0.725,0.728,0.736,0.739,0.732,0.739,0.746,0.754,0.753,0.758,0.759,0.762,0.763,0.769,0.771,0.777,0.780,0.775,0.778,0.783,0.781,0.794,0.786,0.790,0.798,0.800,0.789,0.796],
     },
 }
+
+# Création de la figure
 
 fig, axes = plt.subplots(1, 2, figsize=(11, 4))
 ep = range(1, 51)
@@ -47,6 +52,7 @@ axes[1].set_xticks(list(x)); axes[1].set_xticklabels(tags, fontsize=10)
 axes[1].set_ylabel("Accuracy (%)"); axes[1].set_title("Ablation Study — Normalisation")
 axes[1].legend(fontsize=9); axes[1].grid(axis="y", alpha=.3); axes[1].set_ylim(70, 88)
 
+# Sauvegarde du plot .
 plt.tight_layout()
 plt.savefig("ablation.png", dpi=160)
 print("ablation.png saved")
