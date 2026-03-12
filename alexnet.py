@@ -4,7 +4,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 
-# ── Initialisation He : std = sqrt(2/fan_in), compense les 50% de neurones
+#  Un fonction pour l'initialisation He : std = sqrt(2/fan_in), il va aider à compenser les 50% de neurones
 #    annulés par ReLU pour maintenir la variance du signal couche après couche
 def he_init(m):
     if isinstance(m, (nn.Conv2d, nn.Linear)):
@@ -14,9 +14,10 @@ def he_init(m):
             nn.init.zeros_(m.bias)
 
 
-# ── Local Response Normalisation (Krizhevsky 2012, eq.3)
+#  Local Response Normalisation
 #    Normalise chaque activation par ses n voisins sur l'axe canal :
 #    b = a / (k + alpha * sum(a_j^2))^beta
+
 class LRN(nn.Module):
     def __init__(self, n=5, k=2.0, alpha=1e-4, beta=0.75):
         super().__init__()
@@ -30,8 +31,9 @@ class LRN(nn.Module):
         return x / denom
 
 
-# ── Bloc convolutif modulaire : Conv → ReLU → Norm → Pool (optionnel)
-#    norm="bn" | "lrn" | "none"  — seul paramètre qui varie dans l'ablation study
+# Notre Bloc convolutif modulaire : Conv → ReLU → Norm
+#    norm="bn" | "lrn" | "none"  , le  seul paramètre qui varie dans l'ablation study
+
 class ConvBlock(nn.Module):
     def __init__(self, in_c, out_c, k, s, p, norm="bn", pool=False):
         super().__init__()
@@ -47,8 +49,10 @@ class ConvBlock(nn.Module):
         return x
 
 
-# ── AlexNet complet : 5 ConvBlocks + classificateur FC3
-#    Adapté CIFAR-10 64x64 : MaxPool 2x2, FC réduit (2048→1024), AdaptivePool(4,4)
+# Le AlexNet complet : 5 ConvBlocks + classificateur FC3
+#    Adapté sur CIFAR-10 64x64 : MaxPool 2x2, FC réduit (2048→1024), AdaptivePool(4,4)
+
+
 class AlexNet(nn.Module):
     def __init__(self, num_classes=10, norm="bn", p=0.5):
         super().__init__()
