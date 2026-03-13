@@ -128,14 +128,14 @@ for name, p in m.named_parameters():
 ```
 ├── alexnet.py       # LRN manuelle, ConvBlock, AlexNet, init He
 ├── train.py         # entraînement + ablation study (3 variantes)
-├── visualize.py     # courbes val/train + bar chart ablation
+├── Plots.py     # courbes val/train + bar chart ablation
 ├── results.json     # métriques finales (val/test accuracy par variante)
 └── requirements.txt
 ```
 
 ---
 
-## Références
+## Références consultées 
 
 - Krizhevsky, A., Sutskever, I., & Hinton, G.E. (2012). *ImageNet Classification with Deep Convolutional Neural Networks*. NeurIPS.
 - He, K., Zhang, X., Ren, S., & Sun, J. (2015). *Delving Deep into Rectifiers*. ICCV.
