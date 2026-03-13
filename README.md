@@ -97,7 +97,7 @@ pip install torch torchvision matplotlib
 python train.py
 
 # Génère ablation.png (courbes + bar chart)
-python visualize.py
+python Plots.py
 ```
 
 **Test rapide reproductibilité :**
@@ -118,7 +118,7 @@ for name, p in m.named_parameters():
         ratio = p.data.std().item() / math.sqrt(2.0 / fan_in)
         print(f'{name:40s}  ratio={ratio:.2f}')
 "
-# → ratio=1.00 sur toutes les couches
+# → ratio ≈ 1.00 sur  les couches
 ```
 
 ---
