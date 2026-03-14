@@ -1,7 +1,7 @@
 # AlexNet — From Scratch (PyTorch)
 
-**TP n°2 · Advanced Deep Learning · UAC/ENEAM/ISE**  
-Étudiant : BABA C.F. Brilland | Enseignant :Rodéo Oswald Y. TOHA (Engineer in CV & GenAI)
+**TP n°2 · Advanced Deep Learning · ENEAM/ISE**  
+Étudiant : BABA C.F. Brilland | Enseignant : R.O.Y. TOHA
 
 ---
 
@@ -88,6 +88,28 @@ Pipeline : `Conv2d → ReLU → Norm → MaxPool 2×2` (optionnel par bloc).
 
 ---
 
+## Cloner & Reproduire le projet
+
+```bash
+# 1. Cloner le repo
+git clone https://github.com/Brilland-baba/alexnet-from-scratch.git
+cd alexnet-from-scratch
+
+# 2. Installer les dépendances
+pip install torch torchvision matplotlib
+
+# 3. Lancer l'entraînement complet (3 variantes)
+python train.py
+# → télécharge CIFAR-10 automatiquement
+# → génère ckpt_bn.pt, ckpt_lrn.pt, ckpt_none.pt, results.json
+
+# 4. Générer les graphes
+python Plots.py
+# → génère ablation.png
+```
+
+---
+
 ## Setup & Run
 
 ```bash
@@ -118,7 +140,7 @@ for name, p in m.named_parameters():
         ratio = p.data.std().item() / math.sqrt(2.0 / fan_in)
         print(f'{name:40s}  ratio={ratio:.2f}')
 "
-# → ratio ≈ 1.00 sur  les couches
+# → ratio=1.00 sur toutes les couches
 ```
 
 ---
@@ -128,14 +150,14 @@ for name, p in m.named_parameters():
 ```
 ├── alexnet.py       # LRN manuelle, ConvBlock, AlexNet, init He
 ├── train.py         # entraînement + ablation study (3 variantes)
-├── Plots.py     # courbes val/train + bar chart ablation
+├── Plots.py          # courbes val/train + bar chart ablation
 ├── results.json     # métriques finales (val/test accuracy par variante)
 └── requirements.txt
 ```
 
 ---
 
-## Références consultées 
+## Références
 
 - Krizhevsky, A., Sutskever, I., & Hinton, G.E. (2012). *ImageNet Classification with Deep Convolutional Neural Networks*. NeurIPS.
 - He, K., Zhang, X., Ren, S., & Sun, J. (2015). *Delving Deep into Rectifiers*. ICCV.
