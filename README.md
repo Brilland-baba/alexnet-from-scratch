@@ -88,7 +88,7 @@ Pipeline : `Conv2d → ReLU → Norm → MaxPool 2×2` (optionnel par bloc).
 
 ---
 
-## Cloner & Reproduire le projet
+## Pour Cloner & Reproduire le projet
 
 ```bash
 # 1. Cloner le repo
@@ -157,7 +157,7 @@ for name, p in m.named_parameters():
 
 ---
 
-## Références
+## Références consultées 
 
 - Krizhevsky, A., Sutskever, I., & Hinton, G.E. (2012). *ImageNet Classification with Deep Convolutional Neural Networks*. NeurIPS.
 - He, K., Zhang, X., Ren, S., & Sun, J. (2015). *Delving Deep into Rectifiers*. ICCV.
